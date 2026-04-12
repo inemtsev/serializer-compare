@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benchmark Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; padding: 20px; }
+    h1 { margin-bottom: 16px; color: #00d4ff; }
+    .controls { margin-bottom: 20px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    label { font-weight: 600; }
+    select, button { padding: 8px 14px; border-radius: 6px; border: 1px solid #444; background: #16213e; color: #fff; font-size: 14px; cursor: pointer; }
+    select:hover, button:hover { border-color: #00d4ff; }
+    button { background: #0f3460; }
+    .warning { background: #e94560; color: #fff; padding: 10px 16px; border-radius: 6px; margin-bottom: 16px; display: none; }
+    .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+    @media (max-width: 900px) { .charts { grid-template-columns: 1fr; } }
+    .chart-card { background: #16213e; border-radius: 10px; padding: 16px; }
+    .chart-card h2 { font-size: 16px; margin-bottom: 12px; color: #00d4ff; }
+    .chart-wrapper { height: 280px; }
+    table { width: 100%; border-collapse: collapse; background: #16213e; border-radius: 10px; overflow: hidden; margin-top: 16px; }
+    th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #2a2a4a; }
+    th { background: #0f3460; color: #00d4ff; }
+    tr:hover { background: #1a1a3e; }
+    .run-id { font-size: 12px; color: #888; margin-left: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Benchmark Viewer <span id="currentRun" class="run-id"></span></h1>
+  <div class="warning" id="warning"></div>
+  <div class="controls">
+    <label for="runSelect">Run:</label>
+    <select id="runSelect"></select>
+    <button id="refreshBtn">Refresh</button>
+  </div>
+
+  <div class="charts">
+    <div class="chart-card">
+      <h2>Throughput (ops/ms)</h2>
+      <div class="chart-wrapper"><canvas id="throughputChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h2>Allocations (bytes/op)</h2>
+      <div class="chart-wrapper"><canvas id="allocationChart"></canvas></div>
+    </div>
+  </div>
+
+  <div id="tableContainer"></div>
+
+  <script src="viewer.js"></script>
+</body>
+</html>

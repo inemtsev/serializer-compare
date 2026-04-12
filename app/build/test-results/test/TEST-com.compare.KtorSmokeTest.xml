@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.compare.KtorSmokeTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-12T09:39:37" hostname="Ilyas-MacBook-Pro.local" time="0.28">
+  <properties/>
+  <testcase name="Ktor server responds to health check()" classname="com.compare.KtorSmokeTest" time="0.265"/>
+  <testcase name="Ktor can serialize small object()" classname="com.compare.KtorSmokeTest" time="0.008"/>
+  <testcase name="Ktor can serialize large object()" classname="com.compare.KtorSmokeTest" time="0.006"/>
+  <system-out><![CDATA[16:39:37.626 [DefaultDispatcher-worker-2 @call-context#3] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+16:39:37.640 [DefaultDispatcher-worker-2 @call-context#3] INFO  io.ktor.test - Application started in 0.018 seconds.
+16:39:37.641 [DefaultDispatcher-worker-3 @coroutine#5] INFO  io.ktor.test - Responding at http://localhost:80
+16:39:37.641 [DefaultDispatcher-worker-3 @coroutine#5] INFO  io.ktor.test - Responding at https://localhost:443
+16:39:37.674 [DefaultDispatcher-worker-4 @call-context#15] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+16:39:37.674 [DefaultDispatcher-worker-4 @call-context#15] INFO  io.ktor.test - Application started in 0.0 seconds.
+16:39:37.674 [DefaultDispatcher-worker-3 @coroutine#17] INFO  io.ktor.test - Responding at http://localhost:80
+16:39:37.674 [DefaultDispatcher-worker-3 @coroutine#17] INFO  io.ktor.test - Responding at https://localhost:443
+16:39:37.682 [DefaultDispatcher-worker-5 @call-context#27] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+16:39:37.682 [DefaultDispatcher-worker-5 @call-context#27] INFO  io.ktor.test - Application started in 0.0 seconds.
+16:39:37.682 [DefaultDispatcher-worker-3 @coroutine#29] INFO  io.ktor.test - Responding at http://localhost:80
+16:39:37.682 [DefaultDispatcher-worker-3 @coroutine#29] INFO  io.ktor.test - Responding at https://localhost:443
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
