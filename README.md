@@ -23,7 +23,7 @@ serializer-compare/
 ## Requirements
 
 - JDK 21 (toolchain pinned)
-- Gradle 8.9+
+- Gradle 8.14.4+
 
 ## Build Commands
 
