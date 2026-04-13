@@ -35,7 +35,7 @@ serializer-compare/
 # Run tests only
 ./gradlew :tests:test
 
-# Run Ktor smoke test
+# Start Ktor server
 ./gradlew :app:run
 ```
 
