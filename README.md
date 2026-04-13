@@ -157,3 +157,13 @@ JMH results include:
 - `±` - Standard deviation
 
 Lower nanoseconds/op, higher ops/ms, and lower allocation rates indicate better performance.
+
+## Results
+
+Throughput comparison:
+
+![Throughput](throughput.png)
+
+Memory allocation comparison:
+
+![Memory Allocations](mem_allocations.png)
