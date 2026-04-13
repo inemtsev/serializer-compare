@@ -7,7 +7,7 @@ JMH benchmarks comparing serialization performance of:
 
 Versions are managed in `gradle/libs.versions.toml`.
 
-Includes minimal Ktor integration context and round-trip smoke tests.
+Includes round-trip smoke tests.
 
 ## Project Structure
 
@@ -17,7 +17,6 @@ serializer-compare/
 ├── benchmark-kserialization/ # JMH benchmarks: kotlinx.serialization (4 cases)
 ├── benchmark-jackson2/       # JMH benchmarks: Jackson 2.x (4 cases)
 ├── benchmark-jackson3/       # JMH benchmarks: Jackson 3.x (4 cases)
-├── app/                      # Minimal Ktor server (smoke test)
 └── tests/                    # Round-trip behavior tests (6 cases)
 ```
 
@@ -34,9 +33,6 @@ serializer-compare/
 
 # Run tests only
 ./gradlew :tests:test
-
-# Start Ktor server
-./gradlew :app:run
 ```
 
 ## Running Benchmarks
@@ -123,24 +119,6 @@ To run benchmarks and refresh the viewer data:
 ./run-all-benchmarks.sh [quick|full]
 ```
 
-## Ktor Endpoints
-
-When running `app` module:
-- `GET /health` - Health check (returns "OK")
-- `GET /small` - Serialize small object using kotlinx.serialization
-- `GET /large` - Serialize large object using kotlinx.serialization
-- `POST /small` - Round-trip small object
-- `POST /large` - Round-trip large object
-
-```bash
-# Run Ktor server
-./gradlew :app:run
-
-# Server starts on port 8080
-curl http://localhost:8080/health
-curl http://localhost:8080/small
-```
-
 ## Test Results
 
 ```bash
@@ -157,9 +135,6 @@ The `SmokeTest` verifies round-trip serialization for:
 
 ### Jackson 3.x
 Jackson 3.x is used from the stable 3.1.x line. The Jackson 3.x series uses different Maven artifacts (`tools.jackson.core:*`) but still depends on Jackson 2.x annotations (`com.fasterxml.jackson.core:jackson-annotations`).
-
-### Ktor + Jackson Integration
-Ktor's official `ktor-serialization-jackson` plugin targets Jackson 2.x only. For production use with Jackson 3.x, custom serialization setup would be required. The Ktor app in this project uses kotlinx.serialization only.
 
 ### Fairness of Comparison
 - kotlinx.serialization benchmarks use `encodeDefaults = true` to match Jackson behavior

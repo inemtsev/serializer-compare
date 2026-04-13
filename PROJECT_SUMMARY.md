@@ -2,7 +2,7 @@
 
 ## What was built
 
-A Kotlin project with Ktor context and JMH benchmarks to compare:
+A Kotlin project with JMH benchmarks to compare:
 - kotlinx.serialization
 - Jackson 2.x
 - Jackson 3.x
@@ -19,7 +19,6 @@ Versions are managed in `gradle/libs.versions.toml`.
 
 ## Project layout
 
-- `app/` — minimal Ktor app
 - `tests/` — round-trip smoke tests
 - `benchmark-kserialization/` — isolated JMH benchmarks for kotlinx.serialization
 - `benchmark-jackson2/` — isolated JMH benchmarks for Jackson 2.x
@@ -43,11 +42,6 @@ Jackson 2 and Jackson 3 are benchmarked in **separate JMH modules/jars** so they
 ./gradlew :tests:test
 ```
 
-### Run the Ktor app
-```bash
-./gradlew :app:run
-```
-
 ### List available benchmarks
 ```bash
 java -jar benchmark-kserialization/build/libs/benchmark-kserialization-1.0.0-jmh.jar -l
@@ -67,8 +61,6 @@ Look at `gc.alloc.rate.norm` in the JMH output/results for **bytes allocated per
 ## Caveats
 
 - Jackson 3.x is a stable release but uses different Maven artifacts (`tools.jackson.core:*`).
-- Ktor integration is kept minimal and uses kotlinx.serialization.
-- Stock Ktor Jackson integration targets Jackson 2.x, not Jackson 3.x.
 
 ## Verification status
 
@@ -76,4 +68,3 @@ Verified during setup:
 - project build passes
 - tests pass
 - all 3 JMH jars list their benchmarks
-- app smoke check passes
